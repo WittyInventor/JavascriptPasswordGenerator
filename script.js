@@ -1,11 +1,11 @@
-var passwordUppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
+var passwordUpercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
 var passwordLength = ["8", "9", "10", "11", "12",]
 
-var passwordNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",]
+var passwordNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",]
 
-var passwordSpecialCharacters = ["@", "!", "#", "$", "%", "^", "&", "*",]
+var passwordSpCharacters = ["@", "!", "#", "$", "%", "^", "&", "*",]
 
-var passwordLowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
+var passwordLowcase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
 
 // add the var = (array each other those characters.)
 var megArray = []
@@ -16,6 +16,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 function generatePassword() {
+
   var passwordLength = prompt ("How long do you want your password?")
   var passwordSpecialCharacters = confirm ("Do you want special characters?")
   var passwordNumbers = confirm ("Do you want numbers?")
@@ -25,32 +26,43 @@ function generatePassword() {
   
   let count = 0;
   
-  if(userInfo.passwordUppercase){
-  password= password + passwordUppercase[getRandomIntInclusive(0,passwordUppercase.length)]
-
-  if(userInfo.passwordLowercase){
-    password= password + passwordLowercase[getRandomIntInclusive(0,passwordLowercase.length)]
+  if(passwordUppercase){
+    password= password + passwordUpercase[getRandomIntInclusive(0,passwordUpercase.length)]
+    megArray = megArray + passwordUpercase
     count++;}
-  if(userInfo.passwordNumbers){
-      password= password + passwordNumbers[getRandomIntInclusive(0,passwordNumbers.length)]
+
+  if(passwordLowercase){
+    password= password + passwordLowcase[getRandomIntInclusive(0,passwordLowcase.length)]
+    megArray = megArray + passwordLowcase
+    count++;}
+
+  if(passwordNumbers){
+      password= password + passwordNum[getRandomIntInclusive(0,passwordNum.length)]
+      megArray = megArray + passwordNum
       count++;}
-  if(userInfo.passwordNumbers){
-        password= password + passwordSpecialCharacters[getRandomIntInclusive(0,passwordSpecialCharacters.length)]
+  if(passwordSpecialCharacters){
+        password= password + passwordSpCharacters[getRandomIntInclusive(0,passwordSpCharacters.length)]
+        megArray = megArray + passwordSpCharacters
         count++;}
+        //lsconst withoutCommas = megArray.join('')    
 for (let i = 0; i < passwordLength-count; i++) {
   password= password + megArray[getRandomIntInclusive(0,megArray.length)]
 }
 
-console.log(password);
-  return password;
+
+console.log(count);
+console.log(megArray);
+
+  return (password);
 }
+
 
   var userInfo = {
     passwordLength: passwordLength,
-    passwordSpecialCharacters: passwordSpecialCharacters,
-    passwordNumbers: passwordNumbers,
-    passwordUppercase: passwordUppercase,
-    passwordLowercase: passwordLowercase,
+    passwordSpecialCharacters: passwordSpCharacters,
+    passwordNumbers: passwordNum,
+    passwordUppercase: passwordUpercase,
+    passwordLowercase: passwordLowcase,
   }
   console.log(userInfo)
 
@@ -59,31 +71,31 @@ console.log(password);
 
 if(userInfo.passwordUppercase) { 
   console.log(megArray)
-  megArray = megArray + passwordUppercase
+//megArray = megArray + passwordUpercase
   console.log(megArray)
 }
 
   if(userInfo.passwordLowercase) { 
     console.log(megArray)
-    megArray = megArray + passwordLowercase
+    //megArray = megArray + passwordLowcase
     console.log(megArray)
   }
 
     if(userInfo.passwordLength) { 
       console.log(megArray)
-      megArray = megArray + passwordLength 
+      //megArray = megArray + passwordLength 
       console.log(megArray)
     }
 
       if(userInfo.passwordNumbers) { 
         console.log(megArray)
-        megArray = megArray + passwordNumbers 
+        //megArray = megArray + passwordNum 
         console.log(megArray)
       }
 
         if(userInfo.passwordSpecialCharacters) { 
           console.log(megArray)
-          megArray = megArray + passwordSpecialCharacters
+          //megArray = megArray + passwordSpCharacters
           console.log(megArray)
         }
 
