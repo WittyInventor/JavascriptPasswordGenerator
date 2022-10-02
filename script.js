@@ -28,30 +28,34 @@ function generatePassword() {
   
   if(passwordUppercase){
     password= password + passwordUpercase[getRandomIntInclusive(0,passwordUpercase.length)]
-    megArray = megArray + passwordUpercase
+    //megArray = megArray + passwordUpercase
+    const megArray = megArray.concat(passwordUpercase)
     count++;}
 
   if(passwordLowercase){
     password= password + passwordLowcase[getRandomIntInclusive(0,passwordLowcase.length)]
-    megArray = megArray + passwordLowcase
+    //megArray = megArray + passwordLowcase
+    const megArray = megArray.concat(passwordLowcase);
     count++;}
 
   if(passwordNumbers){
       password= password + passwordNum[getRandomIntInclusive(0,passwordNum.length)]
-      megArray = megArray + passwordNum
+      //megArray = megArray + passwordNum
+      const megArray = megArray.concat(passwordNum)
       count++;}
   if(passwordSpecialCharacters){
         password= password + passwordSpCharacters[getRandomIntInclusive(0,passwordSpCharacters.length)]
-        megArray = megArray + passwordSpCharacters
+        //megArray = megArray + passwordSpCharacters
+        const megArray = megArray.concat(passwordSpCharacters)
         count++;}
-        //lsconst withoutCommas = megArray.join('')    
+//let withoutCommas = megArray.join("")    
 for (let i = 0; i < passwordLength-count; i++) {
   password= password + megArray[getRandomIntInclusive(0,megArray.length)]
 }
 
 
 console.log(count);
-console.log(megArray);
+console.log(typeOfmegArray);
 
   return (password);
 }
