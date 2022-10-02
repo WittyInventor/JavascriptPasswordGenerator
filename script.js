@@ -9,12 +9,40 @@ var passwordLowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
 
 // add the var = (array each other those characters.)
 var megArray = []
+var password = []
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
 function generatePassword() {
   var passwordLength = prompt ("How long do you want your password?")
   var passwordSpecialCharacters = confirm ("Do you want special characters?")
   var passwordNumbers = confirm ("Do you want numbers?")
   var passwordUppercase = confirm ("Do you want uppercase characters?")
   var passwordLowercase = confirm ("Do you want lowercase characters?")
+
+  
+  let count = 0;
+  
+  if(userInfo.passwordUppercase){
+  password= password + passwordUppercase[getRandomIntInclusive(0,passwordUppercase.length)]
+
+  if(userInfo.passwordLowercase){
+    password= password + passwordLowercase[getRandomIntInclusive(0,passwordLowercase.length)]
+    count++;}
+  if(userInfo.passwordNumbers){
+      password= password + passwordNumbers[getRandomIntInclusive(0,passwordNumbers.length)]
+      count++;}
+  if(userInfo.passwordNumbers){
+        password= password + passwordSpecialCharacters[getRandomIntInclusive(0,passwordSpecialCharacters.length)]
+        count++;}
+for (let i = 0; i < passwordLength-count; i++) {
+  password= password + megArray[getRandomIntInclusive(0,megArray.length)]
+}
+
+console.log(password);
+  return password;
 }
 
   var userInfo = {
