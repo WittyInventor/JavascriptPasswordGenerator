@@ -3,7 +3,7 @@ var passwordLength = ["8", "9", "10", "11", "12",]
 
 var passwordNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",]
 
-var passwordSpCharacters = ["@", "!", "#", "$", "%", "^", "&", "*",]
+var passwordSpCharacters = [".","@", "!", "#", "$", "%", "^", "&", "*","/","+"]
 
 var passwordLowcase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
 
@@ -25,37 +25,41 @@ function generatePassword() {
 
   
   let count = 0;
+
   
   if(passwordUppercase){
     password= password + passwordUpercase[getRandomIntInclusive(0,passwordUpercase.length)]
     //megArray = megArray + passwordUpercase
-    const megArray = megArray.concat(passwordUpercase)
+    megArray = megArray.concat(passwordUpercase)
     count++;}
 
   if(passwordLowercase){
     password= password + passwordLowcase[getRandomIntInclusive(0,passwordLowcase.length)]
     //megArray = megArray + passwordLowcase
-    const megArray = megArray.concat(passwordLowcase);
+    megArray = megArray.concat(passwordLowcase);
     count++;}
 
   if(passwordNumbers){
       password= password + passwordNum[getRandomIntInclusive(0,passwordNum.length)]
       //megArray = megArray + passwordNum
-      const megArray = megArray.concat(passwordNum)
+      megArray = megArray.concat(passwordNum)
       count++;}
   if(passwordSpecialCharacters){
         password= password + passwordSpCharacters[getRandomIntInclusive(0,passwordSpCharacters.length)]
         //megArray = megArray + passwordSpCharacters
-        const megArray = megArray.concat(passwordSpCharacters)
+        megArray = megArray.concat(passwordSpCharacters)
         count++;}
 //let withoutCommas = megArray.join("")    
 for (let i = 0; i < passwordLength-count; i++) {
   password= password + megArray[getRandomIntInclusive(0,megArray.length)]
+  console.log(megArray);
 }
 
 
 console.log(count);
-console.log(typeOfmegArray);
+console.log(megArray)
+console.log(typeof megArray);
+console.log(password);
 
   return (password);
 }
