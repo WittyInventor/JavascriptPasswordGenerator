@@ -17,7 +17,7 @@ function getRandomIntInclusive(min, max) {
 }
 function generatePassword() {
 
-  var passwordLength = prompt ("How long do you want your password?")
+  var passwordLength = prompt ("How long do you want your password? choose a length of at least 8 characters and no more than 128 characters")
   var passwordSpecialCharacters = confirm ("Do you want special characters?")
   var passwordNumbers = confirm ("Do you want numbers?")
   var passwordUppercase = confirm ("Do you want uppercase characters?")
@@ -51,7 +51,7 @@ function generatePassword() {
         count++;}
 //let withoutCommas = megArray.join("")    
 for (let i = 0; i < passwordLength-count; i++) {
-  password= password + megArray[getRandomIntInclusive(0,megArray.length)]
+  password= password + megArray[getRandomIntInclusive(0,megArray.length-1)]
   console.log(megArray);
 }
 
